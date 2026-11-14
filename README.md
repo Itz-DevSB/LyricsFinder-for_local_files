@@ -1,38 +1,44 @@
 # Folder LRC Generator
 
-A Windows utility that creates an `.lrc` lyric file beside each audio or video file.
+A Windows utility that creates a timed `.lrc` file beside each audio or video file.
 
-## Use
+## Download
 
-1. Copy `Folder LRC Generator.exe` into the top folder of your music or video library.
-2. Double-click the executable.
-3. Wait for the scan to finish. Matching `.lrc` files are saved beside their media files; a comparison report is saved in the folder where the executable is located.
+Get **Folder.LRC.Generator.exe** from the [latest release](https://github.com/Itz-DevSB/folder-lrc-generator/releases/latest).
 
-The program scans subfolders recursively. Existing `.lrc` files are left alone.
+## Quick start
 
-## How lyric lookup works
+1. Download `Folder.LRC.Generator.exe` from the release assets.
+2. Copy the EXE into the folder that contains your music or videos.
+3. Double-click the EXE and let it finish. It scans that folder and all folders inside it.
+4. Find each generated `.lrc` beside its matching media file. The scan report is saved beside the EXE.
 
-The program looks for synchronized lyrics online first. When it finds them, it skips Whisper for that track. If no online match is found, it uses the bundled Whisper engine locally to transcribe the audio and create timestamped text. The fallback uses word timestamps where available, but recognition and timing can be inaccurate, especially for singing. Review generated files.
+You can also place the EXE in a main music folder to process its subfolders. You do not need to install Python or run `Setup.bat`.
 
-## Requirements and first run
+## What it does
+
+For each media file, the generator first looks for synchronized lyrics online. If it finds a match, it saves those lyrics and skips local transcription for that song. If no timed lyrics are found, the bundled Whisper engine transcribes the audio locally and estimates word or segment timestamps.
+
+Supported formats include MP3, M4A, AAC, FLAC, WAV, OGG, OPUS, WMA, MP4, MKV, MOV, AVI, WEBM, M4V, WMV, MPEG, and MPG.
+
+## Existing lyrics and retrying
+
+If a matching `.lrc` file already exists, it is left unchanged and that media file is skipped. To try again, move or rename that `.lrc` file, then run the EXE again.
+
+## First run and requirements
 
 - Windows 10 or newer.
-- An internet connection for online lyric lookup and the first Whisper model download. The Whisper model is downloaded automatically and cached on the computer; Python and a separate setup program are not required.
-- Scanning the whole library may take time when many tracks need local transcription.
+- Internet is used for online lyric lookup and to download the Whisper `base` model the first time local transcription is needed. The model is cached for later runs.
+- Files with online timed lyrics skip Whisper, so those files do not need local transcription.
+
+## Accuracy
+
+Whisper supports Hindi and can detect the language automatically, but it is designed for speech. It may miss or mishear sung words, especially with music, accents, background vocals, or Hindi-English mixing. Timestamps are estimates and are not guaranteed to be perfectly synchronized. Online lyrics can also be missing or match another recording. Please review generated files.
 
 ## Privacy
 
-For online lyric lookup, the program sends the track title and artist (from metadata when available, otherwise from the filename) to LRCLIB. It does not upload the media file for lyric lookup. Whisper transcription runs locally.
-
-## Limitations
-
-- Online lyrics may be missing or may match a different recording.
-- Whisper is designed for speech transcription; sung words can be missed or incorrect.
-- Timestamps are estimates, not a guarantee of perfect synchronization.
-- The report's text-agreement score is only a rough comparison when both sources are available; it is not a verified accuracy score.
+Online lookup sends the song title and artist (from metadata when available, otherwise from the filename) and approximate duration to LRCLIB. The media file itself is not uploaded for lyric lookup. Whisper transcription runs locally; the model is downloaded from Hugging Face on first use.
 
 ## License and source
 
-This project is distributed under GPL-2.0-or-later because the standalone Windows build bundles GPL-licensed components. The matching application source is in this repository. See LICENSE and THIRD_PARTY_NOTICES.md for details. The Windows executable is published as a downloadable asset on the Releases page.
-
-
+This project is distributed under GPL-2.0-or-later because the Windows executable bundles GPL-licensed components. The matching application source is in this repository. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The EXE is available from the [Releases page](https://github.com/Itz-DevSB/folder-lrc-generator/releases).
