@@ -4,7 +4,7 @@ A Windows utility that creates a timed `.lrc` file beside each audio or video fi
 
 ## Download
 
-Get **Folder.LRC.Generator.exe** from the [latest release](https://github.com/Itz-DevSB/folder-lrc-generator/releases/latest).
+Get **Folder.LRC.Generator.exe** from the [latest release](https://github.com/Itz-DevSB/LyricsFinder-for_local_files/releases/latest).
 
 ## Quick start
 
@@ -41,4 +41,4 @@ Online lookup sends the song title and artist (from metadata when available, oth
 
 ## License and source
 
-This project is distributed under GPL-2.0-or-later because the Windows executable bundles GPL-licensed components. The matching application source is in this repository. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The EXE is available from the [Releases page](https://github.com/Itz-DevSB/folder-lrc-generator/releases).
+This project is distributed under GPL-2.0-or-later because the Windows executable bundles GPL-licensed components. The matching application source is in this repository. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The EXE is available from the [Releases page](https://github.com/Itz-DevSB/LyricsFinder-for_local_files/releases).
